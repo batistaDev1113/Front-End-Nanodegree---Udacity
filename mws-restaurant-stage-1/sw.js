@@ -1,5 +1,4 @@
-console.log('event registred');
-
+// instll event
 self.addEventListener('install', function (e) {
   e.waitUntil(
     caches.open('cacheFirst').then(function (catched) {
@@ -8,20 +7,36 @@ self.addEventListener('install', function (e) {
   );
 });
 
-self.addEventListener('fetch', function (e) {
+// fetch event
+self.addEventListener('fetch', function(e){
   e.respondWith(
-    caches.match(e.request).then(function (response) {
-      if (response) {
-        console.log(`Request ${e.request} found`);
+    caches.match(e.request)
+    .then(function(response){
+      if(response){
+        console.log('Request' +e.request +'already exists in cache');
         return response;
-      } else {
-        console.log(`Request ${e.request} could not be found`);
-        return fetch(e.request);
+      }
+      else {
+        console.log(`Request ${e.request} could not be found in cache`);
+        return fetch(e.request)
+        .then(function(response){
+          let clonedResponse = response.clone();
+          caches.open('cacheFirst').then(function(catched){
+            catched.put(e.request, clonedResponse);
+          })
+          return response;
+        })
+        .catch(function(err){
+          console.log(`Error ${err} was encountered while caching`);
+        });
+
       }
     })
-  );
+  )
 });
 
+
+// array of files to  be cached
 const filesToCache = [
   '/',
   '/index.html',
