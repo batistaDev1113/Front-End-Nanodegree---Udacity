@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -18,11 +18,11 @@
   <header>
     <!-- Beginning nav -->
     <nav>
-      <h1 tabindex="1" role="header"><a href="/">Restaurant Reviews</a></h1>
+      <h1 tabindex="0" role="header"><a href="/">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" >
-      <li><a href="/" tabindex="2" role="link to home page">Home</a></li>
+    <ul id="breadcrumb" aria-label="link to home page">
+      <li><a href="/" tabindex="0" role="navigation">Home</a></li>
     </ul>
     <!-- End breadcrumb -->
     <!-- End nav -->
@@ -32,7 +32,7 @@
   <!-- Beginning main -->
   <main id="maincontent">
     <!-- Beginning map -->
-    <section id="map-container" tabindex="3" role="map display">
+    <section id="map-container" tabindex="0" role="application">
       <div id="map"></div>
     </section>
     <!-- End map -->
