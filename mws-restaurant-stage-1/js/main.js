@@ -214,13 +214,6 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 // cache functionality
 //service worker
 // idea taken from MDN at https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register
-// if('serviceWorker'in navigator){
-//   navigator.serviceWorker.register('./sw.js')
-//   .catch(function(error){
-//     console.log('Service worker registration failed: ', error);
-  
-//   });
-// }
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
