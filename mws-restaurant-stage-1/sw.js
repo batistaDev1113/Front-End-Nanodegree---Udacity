@@ -1,4 +1,5 @@
-// instll event
+
+// install event
 self.addEventListener('install', function (e) {
   e.waitUntil(
     caches.open('cacheFirst').then(function (catched) {
