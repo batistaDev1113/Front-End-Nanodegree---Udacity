@@ -85,7 +85,6 @@ $(function () {
             loadFeed(0, function () {
                 Array.from(newFeed.children).forEach(function (e) {
                     feedsArray.push(e.innerText);
-                    console.log(feedsArray);
                 });
                 loadFeed(1, done);
 
